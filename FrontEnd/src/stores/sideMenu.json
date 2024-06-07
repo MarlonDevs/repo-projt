@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Home",
+        "route": "home",
+        "icon": "fa-home"
+        
+    },
+
+    {
+        "name": "Register",
+        "route": "register",
+        "icon": "fa-home"
+        
+    },
+
+    {
+        "name": "Print",
+        "route": "print",
+        "icon": "fa-home"
+        
+    }
+]
