@@ -5,10 +5,34 @@ interface notaDocument extends NotaInterface, Document {}
 
 const videoSchema = new Schema(
 	{
-		description: {
+		/*description: {
 			type: String,
 			required: true,
-		}
+		},*/
+		brand: {
+			type: String,
+			required: true,
+		},
+		model: {
+			type: String,
+			required: true,
+		},
+		color: {
+			type: String,
+			required: true,
+		},
+		assetNumber: {
+			type: String,
+			required: true,
+		},
+		serial: {
+			type: String,
+			required: true,
+		},
+		user: {
+			type: String,
+			required: true,
+		},
 	},
 	{
 		timestamps: true,

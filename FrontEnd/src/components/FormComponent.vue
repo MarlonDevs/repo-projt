@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-2 gap-6">
+  <form method="get" class="grid grid-cols-2 gap-6">
     <Card class="col-span-1 mt-2 dark:bg-darkmode-600 shadow-md">
       <CardHeader>
         <h2
@@ -12,8 +12,8 @@
       <CardContent>
         <!--EQUIPO-->
         <div class="grid grid-col gap-3 mb-7">
-          <select
-            id="countries"
+          <!--<select
+            id="device"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
           >
             <option selected>Seleccione el Equipo</option>
@@ -24,23 +24,35 @@
             <option value="ESCANER">Escaner</option>
             <option value="RADIO">Radio</option>
             <option value="PANTALLA">Pantalla</option>
-          </select>
+          </select>-->
         </div>
         <div class="grid grid-cols-2 gap-3">
-          <Input type="text" placeholder="Marca del Equipo" />
-          <Input type="text" placeholder="Modelo del Equipo" />
+          <Input type="text" placeholder="Marca del Equipo" id="brand" />
+          <Input type="text" placeholder="Modelo del Equipo" id="model" />
         </div>
         <!--PROPIEDADES DE EQUIPO-->
-        <Input type="text" placeholder="Escriba el color del equipo" />
+        <Input
+          type="text"
+          placeholder="Escriba el color del equipo"
+          id="color"
+        />
         <div class="grid grid-cols-2 gap-3">
-          <Input type="text" placeholder="Escriba el numero de bien" />
-          <Input type="text" placeholder="Escriba el serial del equipo" />
+          <Input
+            type="text"
+            placeholder="Escriba el numero de bien"
+            id="assetNumber"
+          />
+          <Input
+            type="text"
+            placeholder="Escriba el serial del equipo"
+            id="serial"
+          />
         </div>
         <!--UBICACION-->
         <div class="grid grid-cols-2 gap-3">
-          <div>
+          <!--<div>
             <select
-              id="countries"
+              id="location"
               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
             >
               <option selected>Seleccione la ubicacion</option>
@@ -52,8 +64,12 @@
               <option value="RECAU">Recaudacion</option>
               <option value="PREN">Prensa</option>
             </select>
-          </div>
-          <Input type="text" placeholder="Aquien pertenece el Equipo" />
+          </div>-->
+          <Input
+            type="text"
+            placeholder="Aquien pertenece el Equipo"
+            id="user"
+          />
         </div>
 
         <!-- Campo para insertar texto para ser guardado en la base de datos -->
@@ -62,7 +78,7 @@
       </CardContent>
       <CardFooter> </CardFooter>
     </Card>
-  </div>
+  </form>
 </template>
 
 <script setup lang="ts">
@@ -80,14 +96,20 @@ import { onMounted, ref } from "vue";
 const formNotes = ref("");
 const notes = ref([]);
 
-const API_URL = "http://localhost:3000/";
+const API_URL = "http://localhost:5038/";
 
 //funcion para agregar nuevas notas
 const addNewNotes = async () => {
   axios
     .post(API_URL + "api/baer-db/AddNotes", {
       //se define los campos del formulario
-      description: formNotes.value,
+      brand: formNotes.value,
+      model: formNotes.value,
+      assetNumber: formNotes.value,
+      serial: formNotes.value,
+      location: formNotes.value,
+      user: formNotes.value,
+      deivce: formNotes.value,
     })
     .then((response) => {
       //si todo sale bien actualizar la listra y mostar alerta
