@@ -1,4 +1,4 @@
-## Public repo with git
+## Public repo git
 
 Iniciar el repo
 ```bash
